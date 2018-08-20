@@ -4,5 +4,9 @@ services:
     default: true
     depends: mysql
     
+    commands:
+      init:
+        - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
+    
   mysql:
     image: tugboatqa/mysql:5
