@@ -6,7 +6,12 @@ services:
     
     commands:
       init:
+        - composer --no-ansi global require drush/drush:8.x
+        - ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
+        
         - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
+        
+        
     
   mysql:
     image: tugboatqa/mysql:5
