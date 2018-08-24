@@ -10,6 +10,7 @@ services:
         # - ln -sf ~/.composer/vendor/bin/drush /usr/local/bin/drush
         
         # - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
+        - /usr/local/bin/composer -vvv --profile create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
         
         
     
