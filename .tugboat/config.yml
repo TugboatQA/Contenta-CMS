@@ -8,7 +8,7 @@ services:
       init:
         - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
         - ln -snf "${TUGBOAT_ROOT}/contenta" "${DOCROOT}"
-        # - cd ${DOCROOT} && cp .env.example .env
+        - cd "${TUGBOAT_ROOT}/.tugboat/" && cp {.env,.env.local} ${DOCROOT}
                 
     
   mysql:
