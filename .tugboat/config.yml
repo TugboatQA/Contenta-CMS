@@ -9,6 +9,11 @@ services:
         - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
         - ln -snf "${TUGBOAT_ROOT}/contenta/web" "${DOCROOT}"
         - cd "${TUGBOAT_ROOT}/.tugboat/" && cp {.env,.env.local} "${TUGBOAT_ROOT}/contenta/"
+        
+        # Update the .env and .env.local files
+        - echo -e "SITE_MAIL=${CONTENTA_EMAIL}\nACCOUNT_MAIL=${CONTENTA_EMAIL}\nSITE_NAME='${TUGBOAT_PROJECT}'" >> "${TUGBOAT_ROOT}/contenta/.env"
+        - echo -e "ACCOUNT_PASS=${CONTENTA_PWD}" >> "${TUGBOAT_ROOT}/contenta/.env.local"
+        
         - cd "${TUGBOAT_ROOT}/contenta/" && composer run-script install:with-mysql
     
   mysql:
