@@ -10,7 +10,7 @@ services:
         - mv contenta-master contentajs
         - ln -snf "${TUGBOAT_ROOT}/contentajs" "${DOCROOT}"
         - cd "${TUGBOAT_ROOT}/.tugboat/" && mv contentajs.yml "${DOCROOT}/config/local.yml"
-        - sed -i 's/localhost/new/g' file.txt
+        - sed -i 's/TUGBOAT_PREVIEW_URL/${TUGBOAT_PREVIEW_URL}/g' "${DOCROOT}/config/local.yml"
 
   php:
     image: tugboatqa/php:7-apache
