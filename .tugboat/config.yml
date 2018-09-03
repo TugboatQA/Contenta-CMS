@@ -9,5 +9,13 @@ services:
         - tar -xzf contenta.tar.gz
         - mv contentajs-master contentajs
         - cd "${TUGBOAT_ROOT}/.tugboat/" && mv contentajs.yml "${TUGBOAT_ROOT}/contentajs/config/local.yml"
-        - sed -i 's/TUGBOAT_PREVIEW_URL/${TUGBOAT_PREVIEW_URL}/g' "${DOCROOT}/config/local.yml"
+        # - sed -i 's/TUGBOAT_PREVIEW_URL/${TUGBOAT_PREVIEW_URL}/g' "${TUGBOAT_ROOT}/contentajs/config/local.yml"
 
+  php:
+    image: tugboatqa/php:7-apache
+    expose: 8888
+    # Wait until the mysql service is done building
+    depends: mysql
+
+  mysql:
+    image: tugboatqa/mysql:5
