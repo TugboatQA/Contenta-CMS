@@ -32,3 +32,12 @@ services:
     
   mysql:
     image: tugboatqa/mysql:5
+    
+  node:
+    image: tugboatqa/node:10.9
+    commands:
+      init:
+        - curl -Lo contenta.tar.gz https://github.com/contentacms/contentajs/archive/master.tar.gz
+        - tar -xzf contenta.tar.gz
+        - mv contenta-master contentajs
+        
