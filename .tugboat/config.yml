@@ -8,6 +8,7 @@ services:
     commands:
       init:
         # Install opcache and mod-rewrite.
+        - docker-php-ext-install opcache
         - a2enmod headers rewrite
         - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
         - ln -snf "${TUGBOAT_ROOT}/contenta/web" "${DOCROOT}"
@@ -28,10 +29,8 @@ services:
         # Setup the necessary file permissions. 
         - chown www-data "${DOCROOT}/sites/default/files"
         - chmod 744 "${DOCROOT}/sites/default/files"
-        
-        - docker-php-ext-install opcache
     
   mysql:
     image: tugboatqa/mysql:5
     commands:
-      init: mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'tugboat'; FLUSH PRIVILEGES;"
+      #init: mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'tugboat'; FLUSH PRIVILEGES;"
