@@ -1,5 +1,6 @@
 cms:
-  host: TUGBOAT_PREVIEW_URL
+  # host: TUGBOAT_PREVIEW_URL
+  host: http://php:8888
 
 cors:
   origin:
