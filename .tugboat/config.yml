@@ -6,6 +6,8 @@ services:
     
     commands:
       init:
+        # Install opcache and mod-rewrite.
+        - docker-php-ext-install opcache
         - a2enmod headers rewrite
         - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
         - ln -snf "${TUGBOAT_ROOT}/contenta/web" "${DOCROOT}"
