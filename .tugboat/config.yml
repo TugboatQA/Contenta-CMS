@@ -32,6 +32,3 @@ services:
     
   mysql:
     image: tugboatqa/mysql:5
-    commands:
-      #init: mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'tugboat'; FLUSH PRIVILEGES;"
-      init: "mysql -e \"GRANT ALL PRIVILEGES ON *.* TO 'tugboat'; FLUSH PRIVILEGES;\""
