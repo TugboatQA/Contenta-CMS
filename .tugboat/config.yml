@@ -9,7 +9,7 @@ services:
         - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
         - ln -snf "${TUGBOAT_ROOT}/contenta/web" "${DOCROOT}"
         - cd "${TUGBOAT_ROOT}/.tugboat/" && cp {.env,.env.local} "${TUGBOAT_ROOT}/contenta/"
-        - cd ${TUGBOAT_ROOT} && composer run-script install:with-mysql
+        - cd "${TUGBOAT_ROOT}/contenta/" && composer run-script install:with-mysql
     
   mysql:
     image: tugboatqa/mysql:5
