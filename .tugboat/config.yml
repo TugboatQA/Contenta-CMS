@@ -12,7 +12,7 @@ services:
         
         # Update the .env and .env.local files
         - echo -e "SITE_MAIL=${CONTENTA_EMAIL}\nACCOUNT_MAIL=${CONTENTA_EMAIL}\nSITE_NAME='${TUGBOAT_PROJECT}'" >> "${TUGBOAT_ROOT}/contenta/.env"
-        - echo -e "ACCOUNT_PASS=${CONTENTA_PWD}" >> "${TUGBOAT_ROOT}/contenta/.env.local"
+        - echo -e "MYSQL_PASSWORD=tugboat\nACCOUNT_PASS=${CONTENTA_PWD}" >> "${TUGBOAT_ROOT}/contenta/.env.local"
         
         - cd "${TUGBOAT_ROOT}/contenta/" && composer run-script install:with-mysql
     
