@@ -1,5 +1,5 @@
 cms:
-  host: http://localhost:8888
+  host: TUGBOAT_PREVIEW_URL
 
 cors:
   origin:
