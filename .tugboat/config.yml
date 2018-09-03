@@ -17,6 +17,7 @@ services:
         - cd "${TUGBOAT_ROOT}/contenta/" && composer run-script install:with-mysql
         
         # Reset the admin password so it doesn't show in standard output. 
+        - echo "Changing admin password..."
         - ${TUGBOAT_ROOT}/contenta/vendor/drush/drush/drush -r "${DOCROOT}" user:password admin "${CONTENTA_PWD}"
     
   mysql:
