@@ -1,0 +1,7 @@
+cms:
+  host: http://localhost:8888
+
+cors:
+  origin:
+    # It's OK to use '*' in local development.
+    - '*'
