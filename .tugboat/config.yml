@@ -2,13 +2,15 @@ services:
   node:
     image: tugboatqa/node:10.9
     default: true
+    depends: php
     commands:
       init:
         - curl -Lo contenta.tar.gz https://github.com/contentacms/contentajs/archive/master.tar.gz
         - tar -xzf contenta.tar.gz
         - mv contenta-master contentajs
         - ln -snf "${TUGBOAT_ROOT}/contentajs" "${DOCROOT}"
-        - cd "${TUGBOAT_ROOT}/.tugboat/" && mv contentajs.yml "${DOCROOT}/config/local.yml"      
+        - cd "${TUGBOAT_ROOT}/.tugboat/" && mv contentajs.yml "${DOCROOT}/config/local.yml"
+        - sed -i 's/localhost/new/g' file.txt
 
   php:
     image: tugboatqa/php:7-apache
