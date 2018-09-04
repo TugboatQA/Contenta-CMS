@@ -1,6 +1,6 @@
 services:
   node:
-    image: tugboatqa/node:10.9
+    image: tugboatqa/node:8.11
     default: true
     depends: php
     commands:
