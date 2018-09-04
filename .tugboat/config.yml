@@ -13,7 +13,6 @@ services:
 
   php:
     image: tugboatqa/php:7-apache
-    expose: 8888
     # Wait until the mysql service is done building
     depends: mysql
     
