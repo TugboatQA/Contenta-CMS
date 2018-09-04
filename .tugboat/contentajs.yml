@@ -3,7 +3,7 @@ app:
   
 cms:
   # host: TUGBOAT_PREVIEW_URL
-  host: http://php:80
+  host: http://php
 
 cors:
   origin:
