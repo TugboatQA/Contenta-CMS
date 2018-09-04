@@ -21,7 +21,8 @@ services:
         # - docker-php-ext-install opcache
         - a2enmod headers rewrite
         - composer create-project contentacms/contenta-jsonapi-project contenta --stability dev --no-interaction
-        - ln -snf "${TUGBOAT_ROOT}/contenta/web" "${DOCROOT}"
+        # The $DOCROOT variable is not available since this isn't the default service. 
+        - ln -snf "${TUGBOAT_ROOT}/contenta/web" "/var/www/html"
         - cd "${TUGBOAT_ROOT}/.tugboat/" && cp {.env,.env.local} "${TUGBOAT_ROOT}/contenta/"
         
         # Update the .env and .env.local files
@@ -34,11 +35,11 @@ services:
         - ln -sf ${TUGBOAT_ROOT}/contenta/vendor/drush/drush/drush /usr/local/bin/drush
         
         # Reset the admin password so it doesn't show in standard output. 
-        - drush -r "${DOCROOT}" user:password admin "${CONTENTA_PWD}"
+        - drush -r "/var/www/html" user:password admin "${CONTENTA_PWD}"
         
         # Setup the necessary file permissions. 
-        - chown www-data "${DOCROOT}/sites/default/files"
-        - chmod 744 "${DOCROOT}/sites/default/files"
+        - chown www-data "/var/www/html/sites/default/files"
+        - chmod 744 "/var/www/html/sites/default/files"
 
   mysql:
     image: tugboatqa/mysql:5
