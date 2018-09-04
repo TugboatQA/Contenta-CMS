@@ -1,3 +1,6 @@
+app:
+  port: 80
+  
 cms:
   # host: TUGBOAT_PREVIEW_URL
   host: http://php:80
