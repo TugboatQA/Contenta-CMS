@@ -9,6 +9,7 @@ services:
         - tar -xzf contenta.tar.gz
         - mv contentajs-master contentajs
         - cd "${TUGBOAT_ROOT}/.tugboat/" && mv contentajs.yml "${TUGBOAT_ROOT}/contentajs/config/local.yml"
+        - cd contentajs && npm install
 
   php:
     image: tugboatqa/php:7-apache
