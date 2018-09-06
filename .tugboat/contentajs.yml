@@ -1,5 +1,5 @@
 app:
-  port: 80
+  port: 8080
   
 cms:
   # host: TUGBOAT_PREVIEW_URL
