@@ -1,9 +1,9 @@
 app:
-  port: 8080
+  port: 80
   
 cms:
   # host: TUGBOAT_PREVIEW_URL
-  host: http://php
+  host: http://php:8080
 
 cors:
   origin:
