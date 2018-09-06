@@ -1,6 +1,7 @@
 services:
   node:
     image: tugboatqa/node:8.11
+    expose: 8080
     default: true
     depends: php
     commands:
