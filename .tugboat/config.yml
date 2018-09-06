@@ -12,6 +12,7 @@ services:
 
   php:
     image: tugboatqa/php:7-apache
+    expose: 8080
     # Grab a copy of the repos. This happens automatically when `default: true` is used. 
     checkout: true
     # Wait until the mysql service is done building
