@@ -11,6 +11,8 @@ services:
         - mv contentajs-master contentajs
         - cd "${TUGBOAT_ROOT}/.tugboat/" && mv contentajs.yml "${TUGBOAT_ROOT}/contentajs/config/local.yml"
         - cd contentajs && npm install
+        - mkdir -p /etc/service/npm
+        - mv contentajs/contentajs.sh /etc/service/npm/run
 
   php:
     image: tugboatqa/php:7-apache
