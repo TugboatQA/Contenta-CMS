@@ -11,6 +11,8 @@ services:
         - mv contentajs-master contentajs
         - cd "${TUGBOAT_ROOT}/.tugboat/" && mv contentajs.yml "${TUGBOAT_ROOT}/contentajs/config/local.yml"
         - cd contentajs && npm install
+        
+        # Make a runit script to automatically run 'npm start' 
         - mkdir -p /etc/service/npm && touch /etc/service/npm/run
         - echo -e "#!/bin/sh\nexec npm start --prefix ${TUGBOAT_ROOT}/contentajs" >> "/etc/service/npm/run"
         - chmod a+x /etc/service/npm/run
