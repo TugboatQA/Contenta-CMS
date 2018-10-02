@@ -1,2 +1,2 @@
 #!/bin/sh
-exec cd contentajs && npm start
+exec npm start --prefix ${TUGBOAT_ROOT}/contentajs
