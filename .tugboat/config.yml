@@ -13,6 +13,7 @@ services:
         - cd contentajs && npm install
         - mkdir -p /etc/service/npm
         - mv "${TUGBOAT_ROOT}/.tugboat/contentajs.sh" /etc/service/npm/run
+        - chmod a+x /etc/service/npm/run
 
   php:
     image: tugboatqa/php:7-apache
