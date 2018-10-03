@@ -13,10 +13,17 @@ services:
         - cd contentajs && npm install
         
         # Make a runit script to automatically run 'npm start' 
-        - mkdir -p /etc/service/npm && touch /etc/service/npm/run && touch /var/log/npm
+        - mkdir -p /etc/service/npm && touch /etc/service/npm/run
         - echo -e "#!/bin/sh\nexec npm start --prefix ${TUGBOAT_ROOT}/contentajs" >> "/etc/service/npm/run"
         - echo -e "exec svlogd -t /var/log/npm" >> "/etc/service/npm/run"
         - chmod a+x /etc/service/npm/run
+        # Make a logging service
+        - mkdir -p /var/log/npm
+        - mkdir -p /etc/service/npm/log
+        - touch /etc/service/npm/log/run
+        - chmod a+x /etc/service/npm/log/run
+        - echo "#!/bin/sh" >> /etc/service/npm/log/run
+        - echo "exec svlogd -t /var/log/npm" >> /etc/service/npm/log/run
 
   php:
     image: tugboatqa/php:7-apache
