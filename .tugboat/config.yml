@@ -13,7 +13,7 @@ services:
         - cd contentajs && npm install
         
         # Make a runit script to automatically run 'npm start' 
-        - mkdir -p /etc/service/npm && touch /etc/service/npm/run
+        - mkdir -p /etc/service/npm && touch /etc/service/npm/run && touch /var/log/npm
         - echo -e "#!/bin/sh\nexec npm start --prefix ${TUGBOAT_ROOT}/contentajs" >> "/etc/service/npm/run"
         - echo -e "exec svlogd -t /var/log/npm" >> "/etc/service/npm/run"
         - chmod a+x /etc/service/npm/run
